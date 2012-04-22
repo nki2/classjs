@@ -8,7 +8,7 @@ var Sample1 = Sample1 || {};
 
 
 // new class Sample1.ClassA
-Sample1.ClassA = ClassJS.extend({
+Sample1.ClassA = Class.extend({
 	// variables
 	$output: null,
 	var0: "default0",

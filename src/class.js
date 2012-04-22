@@ -34,4 +34,4 @@ function newClass(classObj, superClass) {
 	return f;
 }
 
-var ClassJS = newClass({});
+var Class = newClass({});
