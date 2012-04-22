@@ -8,7 +8,7 @@ var Sample1 = Sample1 || {};
 
 
 // new class Sample1.ClassA
-Sample1.ClassA = newClass({
+Sample1.ClassA = ClassJS.extend({
 	// variables
 	$output: null,
 	var0: "default0",
@@ -37,7 +37,7 @@ Sample1.ClassA = newClass({
 
 
 // new class Sample1.ClassB extended from Sample1.ClassA
-Sample1.ClassB = newClass({
+Sample1.ClassB = Sample1.ClassA.extend({
 	// variables
 	var0: "default0 overridden by ClassB",
 	var2: "default2",
@@ -55,11 +55,11 @@ Sample1.ClassB = newClass({
 		this.output("var2: " + this.var2);
 		this.output("\n");
 	}
-}, Sample1.ClassA);
+});
 
 
 // new class Sample1.ClassC extended from Sample1.ClassB
-Sample1.ClassC = newClass({
+Sample1.ClassC = Sample1.ClassB.extend({
 	// variables
 	var3: "default3",
 
@@ -98,10 +98,10 @@ Sample1.ClassC = newClass({
 		this.output("var0: " + this.__super.__super.var0);
 		this.output("\n");
 	}
-}, Sample1.ClassB);
+});
 
 // new class Sample1.ClassD extended from Sample1.ClassA
-Sample1.ClassD = newClass({
+Sample1.ClassD = Sample1.ClassA.extend({
 	// override variables
 	var0: "default0 overridden by ClassD",
 	var1: "default1 overridden by ClassD",
@@ -116,7 +116,7 @@ Sample1.ClassD = newClass({
 	method2: function() {
 		this.output("method2 overridden by ClassD");
 	}
-}, Sample1.ClassA);
+});
 
 
 

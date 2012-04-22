@@ -1,7 +1,7 @@
 /**
  * @author nki2 / http://nki2.jp/
  * @author okb
- * @revision 3
+ * @revision 4
  */
 
 
@@ -9,10 +9,13 @@ function newClass(classObj, superClass) {
 	if(!classObj) classObj = {};
 	if(typeof classObj.__construct !== "function") classObj.__construct = function() {};
 	var f = classObj.__construct;
+	f.extend = function(classObj) { return newClass(classObj, this); }
+	
 	if(superClass) {
 		for(var i in superClass.prototype) f.prototype[i] = superClass.prototype[i];
 		classObj.__super = superClass.prototype;
 	}
+	
 	for(var j in classObj) {
 		if(superClass && typeof classObj[j] == "function") {
 			f.prototype[j] = (function(func, superClass) {
@@ -30,3 +33,5 @@ function newClass(classObj, superClass) {
 	}
 	return f;
 }
+
+var ClassJS = newClass({});
