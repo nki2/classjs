@@ -1,6 +1,7 @@
 /**
  * @author nki2 / http://nki2.jp/
  * @author okb
+ * @see https://github.com/nki2/classjs
  * @revision 4
  */
 
